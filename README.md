@@ -133,8 +133,8 @@ Request:
 {
   "requirement": "产品需求描述",
   "apiKey": "sk-xxx",
-  "baseUrl": "https://api.openai.com/v1",
-  "model": "gpt-4o-mini"
+  "baseUrl": "[https://api.openai.com/v1](https://api.deepseek.com/v1)",
+  "model": "deepseek-chat"
 }
 
 Response:
