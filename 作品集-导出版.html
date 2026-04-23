@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI产品经理助手 - 产品设计作品集</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 14px;
+            line-height: 1.8;
+            color: #333;
+            background: #fff;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 50px;
+        }
+        
+        /* 封面 */
+        .cover {
+            text-align: center;
+            padding: 80px 0;
+            border-bottom: 3px solid #1a1a2e;
+            margin-bottom: 50px;
+        }
+        
+        .cover h1 {
+            font-size: 42px;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+        
+        .cover .subtitle {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 40px;
+        }
+        
+        .cover .meta {
+            font-size: 14px;
+            color: #999;
+        }
+        
+        .cover .meta span {
+            margin: 0 15px;
+        }
+        
+        /* 章节标题 */
+        h2 {
+            font-size: 22px;
+            color: #1a1a2e;
+            border-left: 4px solid #4361ee;
+            padding-left: 15px;
+            margin: 40px 0 20px 0;
+        }
+        
+        h3 {
+            font-size: 16px;
+            color: #333;
+            font-weight: 600;
+            margin: 25px 0 10px 0;
+        }
+        
+        p {
+            margin-bottom: 12px;
+            text-align: justify;
+        }
+        
+        /* 强调框 */
+        .highlight-box {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-left: 4px solid #4361ee;
+            padding: 20px 25px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .highlight-box .title {
+            font-weight: 600;
+            color: #1a1a2e;
+            margin-bottom: 8px;
+        }
+        
+        /* 列表 */
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 25px;
+        }
+        
+        li {
+            margin-bottom: 10px;
+        }
+        
+        li::marker {
+            color: #4361ee;
+        }
+        
+        /* 表格 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 13px;
+        }
+        
+        th {
+            background: #1a1a2e;
+            color: #fff;
+            padding: 12px 15px;
+            text-align: left;
+            font-weight: 500;
+        }
+        
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        /* 代码块 */
+        .code-block {
+            background: #1a1a2e;
+            color: #e9ecef;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 12px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+        }
+        
+        .code-block .comment {
+            color: #6c757d;
+        }
+        
+        .code-block .key {
+            color: #7ee787;
+        }
+        
+        .code-block .string {
+            color: #a5d6ff;
+        }
+        
+        /* 分隔线 */
+        .divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #ddd, transparent);
+            margin: 40px 0;
+        }
+        
+        /* 用户旅程图 */
+        .journey {
+            display: flex;
+            justify-content: space-between;
+            margin: 30px 0;
+            position: relative;
+        }
+        
+        .journey::before {
+            content: '';
+            position: absolute;
+            top: 25px;
+            left: 10%;
+            right: 10%;
+            height: 3px;
+            background: linear-gradient(90deg, #4361ee, #7209b7);
+            z-index: 0;
+        }
+        
+        .journey-item {
+            text-align: center;
+            flex: 1;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .journey-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #4361ee, #7209b7);
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 20px;
+        }
+        
+        .journey-title {
+            font-weight: 600;
+            color: #1a1a2e;
+            margin-bottom: 5px;
+        }
+        
+        .journey-desc {
+            font-size: 12px;
+            color: #666;
+        }
+        
+        /* 亮点卡片 */
+        .highlight-card {
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: 12px;
+            padding: 25px;
+            margin: 20px 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        
+        .highlight-card h4 {
+            color: #4361ee;
+            margin-bottom: 12px;
+            font-size: 15px;
+        }
+        
+        /* 功能流程 */
+        .flow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px 0;
+        }
+        
+        .flow-item {
+            background: linear-gradient(135deg, #4361ee, #7209b7);
+            color: #fff;
+            padding: 15px 25px;
+            border-radius: 25px;
+            font-weight: 500;
+        }
+        
+        .flow-arrow {
+            color: #4361ee;
+            font-size: 24px;
+        }
+        
+        /* 引用块 */
+        blockquote {
+            background: #f8f9fa;
+            border-left: 4px solid #4361ee;
+            padding: 15px 20px;
+            margin: 20px 0;
+            font-style: italic;
+            color: #555;
+        }
+        
+        /* 页脚 */
+        .footer {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid #eee;
+            color: #999;
+            font-size: 12px;
+        }
+        
+        /* 分页 */
+        .page-break {
+            page-break-after: always;
+        }
+        
+        /* 响应式 */
+        @media print {
+            body {
+                font-size: 12px;
+            }
+            
+            .container {
+                padding: 40px 35px;
+            }
+            
+            .cover {
+                padding: 60px 0;
+            }
+            
+            .cover h1 {
+                font-size: 36px;
+            }
+            
+            h2 {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 封面 -->
+        <div class="cover">
+            <h1>AI产品经理助手</h1>
+            <p class="subtitle">输入需求，一键生成PRD文档和流程图</p>
+            <div class="meta">
+                <span>产品设计作品集</span>
+                <span>|</span>
+                <span>个人项目</span>
+                <span>|</span>
+                <span>作者：Kaya</span>
+            </div>
+            <div class="meta" style="margin-top: 15px;">
+                <span>联系方式：15070448576@163.com</span>
+                <span>|</span>
+                <span>完成时间：2026年4月</span>
+            </div>
+        </div>
+
+        <!-- 项目背景 -->
+        <h2>一、项目背景</h2>
+        
+        <h3>为什么做这个项目</h3>
+        <p>作为应届毕业生，我对AI应用落地很感兴趣。在学习产品经理相关课程时，发现了一个明显的痛点：</p>
+        
+        <div class="highlight-box">
+            <div class="title">日常学习中的困境</div>
+            <ul>
+                <li>产品经理岗位需要大量的文档练习（PRD、需求分析、功能设计）</li>
+                <li>每次练习都要从头写，耗时且难以对比学习</li>
+                <li>网上能找到的案例大多是"玩具级"Demo，缺乏完整的生产级实现</li>
+            </ul>
+        </div>
+        
+        <p><strong>选择做这个项目的原因：</strong></p>
+        <ol>
+            <li><strong>解决实际问题</strong>：自己学PM需要练手，这个工具能提升练习效率</li>
+            <li><strong>技术契合度高</strong>：涉及AI、产品设计、前后端实现，适合作为学习项目</li>
+            <li><strong>有差异化</strong>：不是简单的大模型套壳，而是围绕PM工作流的完整工具</li>
+        </ol>
+
+        <h3>项目定位</h3>
+        <p>这是一个<strong>AI辅助PRD生成工具</strong>，面向产品经理学习者和初级PM，帮助他们快速完成从需求分析到PRD文档生成的完整流程。</p>
+
+        <div class="divider"></div>
+
+        <!-- 产品定位 -->
+        <h2>二、产品定位</h2>
+        
+        <h3>目标用户</h3>
+        <table>
+            <tr>
+                <th>用户类型</th>
+                <th>特征</th>
+                <th>痛点</th>
+            </tr>
+            <tr>
+                <td>PM学习者</td>
+                <td>应届生、转行者</td>
+                <td>缺乏实战经验，练习效率低</td>
+            </tr>
+            <tr>
+                <td>初级PM</td>
+                <td>0-2年经验</td>
+                <td>文档写作耗时，格式不规范</td>
+            </tr>
+            <tr>
+                <td>全栈学习者</td>
+                <td>研发转产品</td>
+                <td>不熟悉PM工作流程</td>
+            </tr>
+        </table>
+        
+        <h3>解决的核心问题</h3>
+        <div class="highlight-box">
+            <div class="title">问题</div>
+            写一份完整的PRD需要2-4小时，其中需求分析占40%时间
+        </div>
+        
+        <div class="highlight-box">
+            <div class="title">解决方案</div>
+            输入自然语言需求 → AI自动拆解用户角色、功能点、流程 → 自动生成结构化PRD文档 → 自动生成Mermaid流程图
+        </div>
+        
+        <div class="highlight-box">
+            <div class="title">效果</div>
+            单次需求处理时间从2小时缩短至10分钟
+        </div>
+        
+        <h3>产品价值主张</h3>
+        <blockquote>
+            "输入需求，输出PRD" —— 让产品经理专注于产品思考，而非文档排版。
+        </blockquote>
+
+        <div class="page-break"></div>
+
+        <!-- 核心功能设计 -->
+        <h2>三、核心功能设计</h2>
+        
+        <h3>功能一：智能需求分析</h3>
+        <p><strong>功能描述：</strong>用户输入一段自然语言描述的产品需求，系统自动拆解为结构化的需求要素。</p>
+        
+        <div class="highlight-box">
+            <div class="title">输入示例</div>
+            做一个新能源充电桩预约系统，支持车主预约充电桩、查看充电状态、在线支付等功能
+        </div>
+        
+        <p><strong>输出结构：</strong></p>
+        <div class="code-block"><span class="key">"用户角色"</span>: [<span class="string">"车主"</span>, <span class="string">"管理员"</span>, <span class="string">"维修人员"</span>],
+<span class="key">"核心功能"</span>: [<span class="string">"充电桩查找与预约"</span>, <span class="string">"预约时间管理"</span>, <span class="string">"充电状态实时查看"</span>, ...],
+<span class="key">"用户流程"</span>: {
+    <span class="key">"主流程"</span>: <span class="string">"查找充电桩 → 选择时间 → 确认预约 → 扫码充电 → 支付离开"</span>,
+    <span class="key">"异常流程"</span>: <span class="string">"预约冲突处理、无空闲桩引导、改签/取消预约"</span>
+}</div>
+        
+        <p><strong>设计思考：</strong>为什么拆解成这三个维度？用户角色明确服务对象，核心功能确定产品边界，用户流程梳理核心链路。这三个维度恰好对应PRD中的必备要素。</p>
+
+        <h3>功能二：自动生成PRD文档</h3>
+        <p><strong>功能描述：</strong>基于需求分析结果，自动生成符合规范的PRD文档。</p>
+        
+        <table>
+            <tr>
+                <th>章节</th>
+                <th>内容</th>
+                <th>作用</th>
+            </tr>
+            <tr>
+                <td>产品概述</td>
+                <td>背景、目标、范围</td>
+                <td>让读者快速了解产品</td>
+            </tr>
+            <tr>
+                <td>用户分析</td>
+                <td>角色、场景、需求</td>
+                <td>明确服务谁</td>
+            </tr>
+            <tr>
+                <td>功能需求</td>
+                <td>功能描述、流程、规则</td>
+                <td>告诉开发做什么</td>
+            </tr>
+            <tr>
+                <td>非功能需求</td>
+                <td>性能、安全、兼容性</td>
+                <td>质量约束</td>
+            </tr>
+        </table>
+        
+        <p><strong>设计原则：</strong>结构优先于内容；用户视角（每个功能从"用户故事"角度描述）；可验证（每个功能都有明确的验收标准）。</p>
+
+        <h3>功能三：流程图自动生成</h3>
+        <p><strong>功能描述：</strong>基于用户流程描述，自动生成Mermaid格式的流程图。</p>
+        
+        <div class="code-block"><span class="comment">// 输入：用户流程描述</span>
+<span class="key">graph TD</span>
+    A[开始] --> B[查找充电桩]
+    B --> C{<span class="key">有空闲桩?</span>}
+    C -->|<span class="string">是</span>| D[选择时间]
+    C -->|<span class="string">否</span>| E[查看附近桩]
+    E --> B
+    D --> F[确认预约] --> G[生成订单]
+    G --> H[扫码充电] --> I[实时监控]
+    I --> J[充电完成] --> K[在线支付] --> L[结束]</div>
+        
+        <p><strong>选择Mermaid的原因：</strong>技术可行性高（前端有现成的渲染库）；格式开放（非私有格式）；可扩展（支持导出PNG、SVG等）。</p>
+
+        <div class="page-break"></div>
+
+        <!-- 用户流程 -->
+        <h2>四、用户流程</h2>
+        
+        <div class="journey">
+            <div class="journey-item">
+                <div class="journey-icon">1</div>
+                <div class="journey-title">输入</div>
+                <div class="journey-desc">输入需求<br>选择模板<br>点击开始</div>
+            </div>
+            <div class="journey-item">
+                <div class="journey-icon">2</div>
+                <div class="journey-title">等待</div>
+                <div class="journey-desc">AI分析需求<br>生成PRD<br>生成流程图</div>
+            </div>
+            <div class="journey-item">
+                <div class="journey-icon">3</div>
+                <div class="journey-title">查看</div>
+                <div class="journey-desc">切换Tab查看<br>需求拆解<br>文档/流程图</div>
+            </div>
+            <div class="journey-item">
+                <div class="journey-icon">4</div>
+                <div class="journey-title">使用</div>
+                <div class="journey-desc">复制/下载<br>修改重试<br>保存项目</div>
+            </div>
+        </div>
+        
+        <h3>典型使用场景</h3>
+        
+        <div class="highlight-card">
+            <h4>场景一：学习练习</h4>
+            <p>小王是产品经理学习者，他想练习写电商类PRD：打开产品 → 选择"电商"行业模板 → 输入需求 → 查看AI输出的需求拆解 → 对比自己思考 → 复制内容到练习文档中。</p>
+        </div>
+        
+        <div class="highlight-card">
+            <h4>场景二：工作辅助</h4>
+            <p>小李是初级PM，需要快速产出PRD框架：输入模糊需求 → AI帮助细化、补充完整 → 在生成结果基础上调整 → 导出Markdown导入公司文档模板。</p>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- PRD设计能力 -->
+        <h2>五、PRD设计能力</h2>
+        
+        <h3>我理解的PRD</h3>
+        <p>PRD（Product Requirement Document）是产品需求文档，是产品经理日常工作中最核心的输出物之一。一份好的PRD需要包含：</p>
+        
+        <div class="flow">
+            <div class="flow-item">产品概述</div>
+            <span class="flow-arrow">→</span>
+            <div class="flow-item">用户分析</div>
+            <span class="flow-arrow">→</span>
+            <div class="flow-item">功能需求</div>
+            <span class="flow-arrow">→</span>
+            <div class="flow-item">非功能需求</div>
+        </div>
+        
+        <h3>PRD设计思路</h3>
+        <p>在设计这个产品的PRD生成逻辑时，我参考了行业最佳实践，并做了简化：</p>
+        
+        <ul>
+            <li><strong>结构优先于内容：</strong>先有骨架，再填血肉</li>
+            <li><strong>用户视角：</strong>每个功能都从"用户故事"角度描述</li>
+            <li><strong>可验证：</strong>每个功能都有明确的验收标准</li>
+        </ul>
+        
+        <h3>功能描述示例</h3>
+        <div class="highlight-box">
+            <div class="title">❌ 错误示范（模糊）</div>
+            用户可以查看充电桩状态
+        </div>
+        
+        <div class="highlight-box">
+            <div class="title">✓ 正确示范（具体）</div>
+            <p><strong>功能：</strong>充电桩状态查看<br>
+            <strong>角色：</strong>车主<br>
+            <strong>场景：</strong>车主打开APP想找一个可用的充电桩<br>
+            <strong>前置条件：</strong>用户已登录<br>
+            <strong>主流程：</strong>进入列表页 → 系统展示附近充电桩（按距离排序）→ 每个桩显示位置、空闲桩数、价格 → 点击查看详情<br>
+            <strong>验收标准：</strong>列表页加载时间&lt;2秒；显示空闲桩数量准确；支持按距离/价格筛选</p>
+        </div>
+
+        <div class="page-break"></div>
+
+        <!-- 技术方案 -->
+        <h2>六、技术方案（简略）</h2>
+        
+        <h3>技术架构</h3>
+        <table>
+            <tr>
+                <th>层级</th>
+                <th>技术</th>
+                <th>职责</th>
+            </tr>
+            <tr>
+                <td>前端</td>
+                <td>Next.js + TypeScript</td>
+                <td>用户界面、状态管理、Markdown/流程图渲染</td>
+            </tr>
+            <tr>
+                <td>后端</td>
+                <td>Node.js + Express</td>
+                <td>API服务、Prompt管理、缓存处理</td>
+            </tr>
+            <tr>
+                <td>LLM层</td>
+                <td>GPT-4 / Claude / 国产模型</td>
+                <td>AI推理（可切换）</td>
+            </tr>
+        </table>
+        
+        <h3>Prompt工程</h3>
+        <p>Prompt设计是这个项目的技术核心。我设计了一套多角色Prompt体系：</p>
+        
+        <div class="code-block"><span class="comment">// 不同角色负责不同任务</span>
+<span class="key">const PROMPTS</span> = {
+  <span class="key">analyzer</span>: <span class="string">`你是一位资深产品经理，擅长需求分析...`</span>,
+  <span class="key">prd_writer</span>: <span class="string">`你是一位专业的PRD文档专家...`</span>,
+  <span class="key">flowchart_generator</span>: <span class="string">`你是一位UE专家，擅长绘制流程图...`</span>
+};</div>
+        
+        <p><strong>Prompt设计原则：</strong></p>
+        <ul>
+            <li><strong>角色定义：</strong>明确AI扮演什么角色</li>
+            <li><strong>输出格式：</strong>严格要求JSON/Markdown格式</li>
+            <li><strong>约束条件：</strong>避免废话、要求数据驱动</li>
+            <li><strong>示例引导：</strong>Few-shot提升输出稳定性</li>
+        </ul>
+        
+        <h3>我的技术边界</h3>
+        <p>作为产品经理，我清楚自己的定位：我负责产品设计、Prompt设计、用户体验；技术配合负责后端API、前端实现、部署运维。我不追求自己能写所有代码，但要求理解技术可行性能和开发有效沟通。</p>
+
+        <div class="page-break"></div>
+
+        <!-- 项目亮点 -->
+        <h2>七、项目亮点</h2>
+        
+        <div class="highlight-card">
+            <h4>亮点一：从0到1的完整产品</h4>
+            <p>这是一个真正能用的完整产品，而非课堂练习或Demo：有前端界面、有后端服务、有数据存储、有用户体系。</p>
+        </div>
+        
+        <div class="highlight-card">
+            <h4>亮点二：Prompt工程的专业应用</h4>
+            <p>Prompt不是简单调用，而是精心设计的工程：多角色分工、Few-shot示例、约束条件、迭代优化。</p>
+        </div>
+        
+        <div class="highlight-card">
+            <h4>亮点三：围绕PM工作流的专注设计</h4>
+            <p>不是泛泛的"AI写文档"，而是垂直于PM场景：需求分析→PRD文档→流程图，完整链路；8大行业模板；支持导出Markdown。</p>
+        </div>
+        
+        <div class="highlight-card">
+            <h4>亮点四：数据驱动的思考方式</h4>
+            <p>虽然没有海量用户，但我在用数据思维做产品：设计了埋点体系、关注转化漏斗、收集Bad Case针对性优化。</p>
+        </div>
+        
+        <div class="highlight-card">
+            <h4>亮点五：持续的迭代优化</h4>
+            <p>产品不是一版定稿，而是持续迭代：V1.0完成核心功能MVP → V1.1优化Prompt质量 → V1.2新增模板库 → 规划V2.0支持更多模型。</p>
+        </div>
+
+        <div class="page-break"></div>
+
+        <!-- 个人职责 -->
+        <h2>八、个人职责</h2>
+        
+        <h3>角色定位</h3>
+        <p>这是一个个人独立项目，从想法到实现都是我主导完成。</p>
+        
+        <h3>具体工作</h3>
+        
+        <div class="highlight-box">
+            <div class="title">产品侧</div>
+            <ul>
+                <li>用户需求调研：访谈了5位PM学习者和1位PM在职者</li>
+                <li>产品设计：功能规划、信息架构、交互设计</li>
+                <li>PRD撰写：输出了完整的产品需求文档</li>
+                <li>Prompt设计：设计并迭代了3套核心Prompt</li>
+            </ul>
+        </div>
+        
+        <div class="highlight-box">
+            <div class="title">技术侧</div>
+            <ul>
+                <li>参与前端界面开发和后端API设计</li>
+                <li>主要负责Prompt工程和业务逻辑实现</li>
+                <li>主导架构选型和模块划分</li>
+            </ul>
+        </div>
+        
+        <h3>协作模式</h3>
+        <p>虽然独立完成，但过程中我积极寻求反馈：定期给同学演示收集使用反馈；在技术社区发帖请教Prompt优化；参考GitHub上多个类似项目的设计。</p>
+
+        <div class="divider"></div>
+
+        <!-- 优化与反思 -->
+        <h2>九、优化与反思</h2>
+        
+        <div class="highlight-card">
+            <h4>反思一：Prompt质量的挑战</h4>
+            <p><strong>问题：</strong>早期输出的PRD经常"假大空"，全是套话没有实质内容。</p>
+            <p><strong>解决：</strong>增加约束条件"用数据说话，避免空话"；给Few-shot示例告诉AI什么是好的输出；收集Bad Case针对性加限制。</p>
+            <p><strong>反思：</strong>Prompt调优是"炼丹"，需要耐心和系统性方法。</p>
+        </div>
+        
+        <div class="highlight-card">
+            <h4>反思二：用户体验的平衡</h4>
+            <p><strong>问题：</strong>功能多了之后，界面变得复杂，新用户不知道从哪里开始。</p>
+            <p><strong>解决：</strong>简化主流程（第一版只展示最核心功能）；增加引导（空状态时给出使用提示）；模板功能（让用户不用从零输入）。</p>
+            <p><strong>反思：</strong>MVP思维很重要，不要一开始就想做"大而全"。</p>
+        </div>
+        
+        <div class="highlight-card">
+            <h4>反思三：从产品经理视角看AI应用</h4>
+            <p><strong>收获：</strong>做这个项目让我真正理解了AI产品的本质：AI是工具而非产品；核心价值在于场景选择和输出调优；产品经理的竞争力在于判断AI输出质量和持续优化能力。</p>
+            <p><strong>未来方向：</strong>引入用户评分体系形成反馈闭环；探索多模态能力（如手绘原型转代码）；针对垂直行业做深度定制。</p>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- 总结 -->
+        <h2>十、总结</h2>
+        
+        <p>这个项目是我作为产品经理学习者的一次完整实践。它帮助我：</p>
+        
+        <ul>
+            <li>理解了AI产品与传统产品的差异</li>
+            <li>掌握了Prompt工程的基本方法</li>
+            <li>锻炼了PRD撰写和需求分析能力</li>
+            <li>学会了用数据思维驱动产品迭代</li>
+        </ul>
+        
+        <blockquote>
+            我相信，AI会成为产品经理的重要助手，而这个项目是我迈向这个方向的起点。
+        </blockquote>
+        
+        <div class="footer">
+            <p>感谢阅读</p>
+            <p>如果你对这个项目感兴趣，欢迎联系我交流：</p>
+            <p style="margin-top: 10px; color: #4361ee;">邮箱：15070448576@163.com</p>
+            <p style="color: #4361ee;">GitHub：https://github.com/kayadarling/AI-Product-Manager-Assistant.git</p>
+            <p style="margin-top: 15px; color: #666;">文档版本：V1.0 | 更新时间：2026年4月</p>
+        </div>
+
+    </div>
+</body>
+</html>
